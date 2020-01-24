@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		
+		body {
+			height: 100vh;
+			background-size: contain;
+			background-color: #000;
+			background-position: center;
+			background-repeat: no-repeat;
+			overflow: hidden;
+			margin: 0;
+		}
+		.info {
+			position: fixed;
+			z-index: 100;
+			padding: 2.5vw;
+			top: 0;
+			left: 0;
+			color:  #FFF;
+			
+
+		}
+		h1 {
+			font-family: sans-serif;
+			font-weight: 400;
+			font-size: 2vw;
+			letter-spacing: 0.07em;
+			margin: 0;
+		}
+		.wrapper {
+			width: 100vw;
+			height: 100vh;
+		}
+		.wrapper video {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+	<title></title>
+	<script type="text/javascript">
+		let filenames = [
+			'1.mp4',
+			'2.mp4',
+			'3.mp4',
+			'4.mp4',
+			'5.mp4',
+			'6.mp4',
+			'7.mp4',
+			'8.mp4',
+			'9.mp4',
+			'10.mp4',
+			'11.mp4',
+			'12.mp4',
+			'13.mp4',
+			'14.mp4',
+			'15.mp4',
+		];
+		let videoIdx = 0;
+		document.addEventListener('DOMContentLoaded', ()=>{
+			progress();
+		});
+		function progress(){
+			let file = filenames[videoIdx];
+			const video = document.querySelector('video');
+			video.addEventListener('ended', progress);
+			video.src = 'clips/'+file;
+			if(videoIdx === filenames.length - 1){
+				videoIdx = 0;
+			} else {
+				videoIdx++;
+			}
+			
+
+		}
+
+	</script>
+</head>
+<body>
+	<div class="wrapper">
+		<video autoplay></video>
+	</div>
+
+	<div class="info">
+		<h1>
+			Virtual Squat<br />
+			Dario DP, 2019
+		</h1>
+	</div>
+</body>
+</html>

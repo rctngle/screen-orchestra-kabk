@@ -21,6 +21,7 @@
     "fs": "0.0.1-security",
     "http": "0.0.0",
     "ip": "^1.1.5",
+    "shuffle-array": "^1.0.1",
     "socket.io": "^2.3.0"
   }
 }

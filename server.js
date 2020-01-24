@@ -4,6 +4,7 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const ip = require('ip');
+const shuffle = require('shuffle-array');
 const clients = [];
 
 app.use(express.static('.'));
@@ -23,6 +24,9 @@ app.get('/monitor', function(req, res){
 app.get('/commands', function(req, res) {
 	const shared = fs.readdirSync('./commands/shared/');
 	const individual = fs.readdirSync('./commands/individual/');
+
+	shuffle(shared);
+	shuffle(individual);
 
 	res.json({
 		shared: shared,
