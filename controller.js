@@ -33,26 +33,33 @@ function setActive(listItem) {
 	listItem.classList.add('active');
 }
 
-function cycle(cycle) {
+function cycle(doCycle) {
 	if (animationInterval) {
 		clearInterval(animationInterval);
 	}	
 
-	if (cycle) {
-		animationInterval = setInterval(() => {
-			console.log('next', animationIdx);
-			const animation = animationOptions[animationIdx];
-			setAnimation(animation.list, animation.item, animation.listItem);
-			animationIdx++;
-			if (animationIdx >= animationOptions.length) {
-				animationIdx = 0;
-			}
-		}, cycleTime);
+	if (doCycle) {
+
+		
+		const animation = animationOptions[animationIdx];
+		let timeout = 10000;
+		if (animation.item.toLowerCase().indexOf('video') >= 0) {
+			timeout = 20000;
+		}
+
+		setAnimation(animation.list, animation.item, animation.listItem);
+		animationIdx++;
+		if (animationIdx >= animationOptions.length) {
+			animationIdx = 0;
+		}
+
+		animationInterval = setTimeout(() => {
+			cycle(true);
+		}, timeout);
 	}
 }
 
 function setAnimation(list, item, listItem) {
-	console.log(list, item, listItem);
 	setActive(listItem);
 	socket.emit('msg', list+'/'+item);
 }
