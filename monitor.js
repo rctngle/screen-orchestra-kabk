@@ -1,4 +1,4 @@
-var socket = io('http://192.168.1.100:3000');
+var socket = io('http://172.17.26.96:3000');
 socket.on('connect', function(){
 	console.log('monitor connect');
 });
