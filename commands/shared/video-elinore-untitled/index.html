@@ -44,25 +44,21 @@
 		let filenames = [
 			'1.mp4',
 			'2.mp4',
+			'3.mp4',
+			'4.mp4',
 		];
 		let videoIdx = 0;
 		document.addEventListener('DOMContentLoaded', ()=>{
 			progress();
 		});
 		function progress(){
-			let file = filenames[videoIdx];
+			let file = filenames[Math.floor(Math.random() * filenames.length)];
+			
 			const video = document.querySelector('video');
 			video.addEventListener('ended', progress);
 			video.src = 'clips/'+file;
-			if(videoIdx === filenames.length - 1){
-				videoIdx = 0;
-			} else {
-				videoIdx++;
-			}
 			
-
 		}
-
 	</script>
 </head>
 <body>

@@ -57,19 +57,13 @@
 			progress();
 		});
 		function progress(){
-			let file = filenames[videoIdx];
+			let file = filenames[Math.floor(Math.random() * filenames.length)];
+			
 			const video = document.querySelector('video');
 			video.addEventListener('ended', progress);
 			video.src = 'clips/'+file;
-			if(videoIdx === filenames.length - 1){
-				videoIdx = 0;
-			} else {
-				videoIdx++;
-			}
 			
-
 		}
-
 	</script>
 </head>
 <body>
