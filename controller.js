@@ -1,4 +1,4 @@
-const ip = '192.168.1.100';
+const ip = '172.17.26.96';
 let animationOptions = [];
 let animationInterval;
 let animationIdx = 0;
